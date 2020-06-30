@@ -7,19 +7,6 @@ const app = express()
 
 const PORT = process.env.PORT
 
-//middleware testing:
-
-// app.use((req, res, next)=>{
-//     // console.log(req.method, req.path)
-//     // next()                              // won't give outpur until you call this. It will always be 
-
-//     if(req.method === 'GET'){
-//         res.status(503).send('Server is down! GET requests are disabled buddy!') 
-//     } else{
-//         next()
-//     }
-// })
-
 
 app.use(express.json())
 
@@ -40,9 +27,6 @@ const bcrypt =  require('bcryptjs')
 const test = async()=>{
     const password = 'Jaison10'
     const hashPassword = await bcrypt.hash(password, 8)
-
-    // console.log(password)
-    // console.log(hashPassword)
 
     const isMatch = await bcrypt.compare('Jaison10', hashPassword)
     // console.log(isMatch)
